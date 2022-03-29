@@ -1,0 +1,70 @@
+---
+title: "131 Homework 1"
+author: "Tonia Wu"
+date: "3/29/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Q1**. Define supervised and unsupervised learning. What are the difference(s) between them?
+
+
+**Q2**. Explain the difference between a regression model and a classification model, specifically in the context of machine learning.
+
+**Q3**. Name two commonly used metrics for regression ML problems. Name two commonly used metrics for classification ML problems.
+
+**Q4**. As discussed, statistical models can be used for different purposes. These purposes can generally be classified into the following three categories. Provide a brief description of each.
+
+- Descriptive models:
+
+- Inferential models:
+
+- Predictive models:
+
+**Q5**. Predictive models are frequently used in machine learning, and they can usually be described as either mechanistic or empirically-driven. Answer the following questions.
+
+- Define mechanistic. Define empirically-driven. How do these model types differ? How are they similar?
+
+- In general, is a mechanistic or empirically-driven model easier to understand? Explain your choice.
+
+- Describe how the bias-variance tradeoff is related to the use of mechanistic or empirically-driven models.
+
+
+**Q6**. A political candidate’s campaign has collected some detailed voter history data from their constituents. The campaign is interested in two questions:
+
+- Given a voter’s profile/data, how likely is it that they will vote in favor of the candidate?
+
+- How would a voter’s likelihood of support for the candidate change if they had personal contact with the candidate?
+
+- Classify each question as either predictive or inferential. Explain your reasoning for each.
+
+
+**Exploratory Data Analysis**
+
+**E1**. We are interested in highway miles per gallon, or the hwy variable. Create a histogram of this variable. Describe what you see/learn.
+
+
+**E2**. Create a scatterplot. Put hwy on the x-axis and cty on the y-axis. Describe what you notice. Is there a relationship between hwy and cty? What does this mean?
+
+
+**E3**. Make a bar plot of manufacturer. Flip it so that the manufacturers are on the y-axis. Order the bars by height. Which manufacturer produced the most cars? Which produced the least?
+
+
+**E4**. Make a box plot of hwy, grouped by cyl. Do you see a pattern? If so, what?
+
+
+**E5**. Use the corrplot package to make a lower triangle correlation matrix of the mpg dataset. (Hint: You can find information on the package here.)
+
+Which variables are positively or negatively correlated with which others? Do these relationships make sense to you? Are there any that surprise you?
+
+
+
+
+
+
+
+
+
