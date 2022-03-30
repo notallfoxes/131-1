@@ -7,17 +7,24 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
 ```
 
 **Q1**. *Define supervised and unsupervised learning. What are the difference(s) between them?*
+
 - Supervised learning involves modelling to predict an output based on input(s). This requires training data from which the model will learn.
 - Unsupervised learning involves inputs and no outputs so that we can learn about the data and potentially discover patterns
 
 **Q2**. *Explain the difference between a regression model and a classification model, specifically in the context of machine learning.*
+
 - Regression models involve continuous, quantitative output
-- Classification models involve qualitative output (such as a yes/no result)
+- Classification models involve qualitative output (such as a yes/no resu)
 
 **Q3**. *Name two commonly used metrics for regression ML problems. Name two commonly used metrics for classification ML problems.*
+- Regression: 
+- Classification: whether something will increase or decrease
+!!! doesn't look right
 
 **Q4**. *As discussed, statistical models can be used for different purposes. These purposes can generally be classified into the following three categories. Provide a brief description of each.*
 
@@ -29,26 +36,39 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Q5**. *Predictive models are frequently used in machine learning, and they can usually be described as either mechanistic or empirically-driven. Answer the following questions.*
 
-- *Define mechanistic. Define empirically-driven. How do these model types differ? How are they similar?*
+|     *Define mechanistic. Define empirically-driven. How do these model types differ? How are they similar?*
 
-- *In general, is a mechanistic or empirically-driven model easier to understand? Explain your choice.*
+|           - A mechanistic model takes a relationship  or theory and imposes it on the data (from lecture)
+|           - AAn empirically-driven model looks at the data and sees what best fits it (from lecture)
+|           - ASimilarities: !!!!!!!!!!!!!!!
+|           - ADifferences: !!!!!!!!!!!!!!
 
-- *Describe how the bias-variance tradeoff is related to the use of mechanistic or empirically-driven models.*
+
+|     *In general, is a mechanistic or empirically-driven model easier to understand? Explain your choice.*
+
+
+|     *Describe how the bias-variance tradeoff is related to the use of mechanistic or empirically-driven models.*
 
 
 **Q6**. *A political candidate’s campaign has collected some detailed voter history data from their constituents. The campaign is interested in two questions:*
 
-- *Given a voter’s profile/data, how likely is it that they will vote in favor of the candidate?*
+|     a. *Given a voter’s profile/data, how likely is it that they will vote in favor of the candidate?*
 
-- *How would a voter’s likelihood of support for the candidate change if they had personal contact with the candidate?*
+|     b. *How would a voter’s likelihood of support for the candidate change if they had personal contact with the candidate?*
 
-- *Classify each question as either predictive or inferential. Explain your reasoning for each.*
+|     *Classify each question as either predictive or inferential. Explain your reasoning for each.*
+|           - a: as we are using past data to predict the future, this involves a predictive model.
+|           - b: since we're interested in the relationship between the inputs and the output, this involves an 
+|                inferential model.
 
-
-**Exploratory Data Analysis**
+**Exploratory Data Analysis: mpg**
 
 **E1**. *We are interested in highway miles per gallon, or the hwy variable. Create a histogram of this variable. Describe what you see/learn.*
+|       Looks like we're dealing with nonsymmetric bimodal data 
 
+```{r}
+ggplot(data = mpg, aes(hwy)) + geom_histogram()
+```
 
 **E2**. *Create a scatterplot. Put hwy on the x-axis and cty on the y-axis. Describe what you notice. Is there a relationship between hwy and cty? What does this mean?*
 
