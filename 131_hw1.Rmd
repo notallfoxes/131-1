@@ -9,8 +9,10 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(ggplot2)
-install.packages('forcats')
+#install.packages('forcats')
+#install.packages('corrplot')
 library(forcats)
+library(corrplot)
 ```
 
 **Q1**. *Define supervised and unsupervised learning. What are the difference(s) between them?*
@@ -100,11 +102,31 @@ boxplot(hwy ~ cyl)
 ```
 
 
-**E5**. *Use the corrplot package to make a lower triangle correlation matrix of the mpg dataset. (Hint: You can find information on the package here.)*
+**E5**. *Use the corrplot package to make a lower triangle correlation matrix of the mpg dataset.*
 
 *Which variables are positively or negatively correlated with which others? Do these relationships make sense to you? Are there any that surprise you?*
 
+Strong positive: displacement & cylinders, highway mpg & city mpg
+
+Neither of these are surprising since I'd expect highway and city mpg to be quite similar, and engine displacement depends on cylinders in the first place.
+
+Strong negative: highway mpg & displacement, city mpg & displacement, city mpg & cylinder, highway mpg & cylinder
+
+For these, I tried Googling what effect cylinders have on gas usage, but came away with no clear answer. So I am surprised by this result, but mainly because I don't understand cars.
+
+Weak positive correlation: year & displacement, cylinder & year
+
+Little to no correlation: city & year, highway mpg & year
+
+The lack of correlation between the mpgs and year was surprising to me because I thought mpg would increase over time. 
+
 ```{r}
+# select only numeric variables
+# source: statistics globe
+mpg_2 <- select_if(mpg, is.numeric)
+mpg_2
+M <- cor(mpg_2)
+corrplot(M, method = 'number', type = 'lower')
 ```
 
 
