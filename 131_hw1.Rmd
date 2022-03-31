@@ -9,6 +9,8 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(ggplot2)
+install.packages('forcats')
+library(forcats)
 ```
 
 **Q1**. *Define supervised and unsupervised learning. What are the difference(s) between them?*
@@ -64,7 +66,7 @@ library(ggplot2)
 **Exploratory Data Analysis: mpg**
 
 **E1**. *We are interested in highway miles per gallon, or the hwy variable. Create a histogram of this variable. Describe what you see/learn.*
-|       Looks like we're dealing with nonsymmetric bimodal data 
+|       Looks like we're dealing with nonsymmetric bimodal data:
 
 ```{r}
 ggplot(data = mpg, aes(hwy)) + geom_histogram()
@@ -72,16 +74,39 @@ ggplot(data = mpg, aes(hwy)) + geom_histogram()
 
 **E2**. *Create a scatterplot. Put hwy on the x-axis and cty on the y-axis. Describe what you notice. Is there a relationship between hwy and cty? What does this mean?*
 
+There is an incredibly strong positive relationship between hwy (highway mpg) and cty (city mpg). Thus, as hwy increases, cty increases.
+
+```{r}
+ggplot(mpg, aes(x = hwy, y = cty)) + geom_point()
+``` 
 
 **E3**. *Make a bar plot of manufacturer. Flip it so that the manufacturers are on the y-axis. Order the bars by height. Which manufacturer produced the most cars? Which produced the least?*
 
 
+```{r}
+ggplot(data = mpg, aes(x = fct_infreq( manufacturer))) + 
+  geom_bar(stat = 'count') +
+  coord_flip()
+```
+
 **E4**. *Make a box plot of hwy, grouped by cyl. Do you see a pattern? If so, what?*
+
+Looks like highway mpg decreases as the number of cylinders increases.
+
+```{r}
+hwy <- mpg$hwy
+cyl <- mpg$cyl
+boxplot(hwy ~ cyl)
+```
 
 
 **E5**. *Use the corrplot package to make a lower triangle correlation matrix of the mpg dataset. (Hint: You can find information on the package here.)*
 
 *Which variables are positively or negatively correlated with which others? Do these relationships make sense to you? Are there any that surprise you?*
+
+```{r}
+```
+
 
 
 
